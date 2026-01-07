@@ -31,14 +31,14 @@ export default async function ProducerDetailPage({ params }: Props) {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 flex items-end justify-center pb-12">
           <div className="text-center text-white px-4 space-y-4 animate-in fade-in slide-in-from-bottom-5 duration-700">
-            <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-sm font-medium mb-4 border border-white/30">
+            <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-sm text-sm font-medium mb-4 border border-white/30">
               <MapPin className="h-4 w-4 mr-2" />
               {producer.region}, Salta
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-shadow-sm">
               {producer.name}
             </h1>
           </div>
@@ -46,13 +46,21 @@ export default async function ProducerDetailPage({ params }: Props) {
       </div>
 
       {/* Intro / Story */}
-      <section className="container mx-auto px-4 py-16 max-w-3xl text-center">
-        <h2 className="text-3xl font-bold text-primary mb-6">
-          Nuestra Historia
-        </h2>
-        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-          {producer.history}
-        </p>
+      <section className="container mx-auto px-4 py-20">
+        <div className="max-w-3xl mx-auto">
+          <div className="flex flex-col items-center mb-10 text-center">
+            <h2 className="text-4xl font-serift font-bold text-primary mb-4">
+              Nuestra Historia
+            </h2>
+            <div className="w-24 h-1 bg-accent rounded-full" />
+          </div>
+
+          <div className="prose prose-lg prose-stone mx-auto text-muted-foreground leading-relaxed text-justify">
+            <p className="whitespace-pre-line first-letter:text-7xl first-letter:font-bold first-letter:text-primary first-letter:mr-3 first-letter:float-left first-letter:leading-[0.8]">
+              {producer.history}
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Production Process - Parallax Gallery 
@@ -84,11 +92,6 @@ export default async function ProducerDetailPage({ params }: Props) {
                   className="object-cover"
                   sizes="100vw"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-8 md:p-12">
-                  <span className="text-white/80 text-sm font-mono tracking-widest uppercase">
-                    Paso {index + 1}
-                  </span>
-                </div>
               </div>
             </div>
           ))}

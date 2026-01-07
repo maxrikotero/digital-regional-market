@@ -1,16 +1,10 @@
 import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const useMockData = process.env.NEXT_PUBLIC_USE_MOCK_DATA === "true";
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY;
 
-if ((!supabaseUrl || !supabaseAnonKey) && !useMockData) {
+if (!supabaseUrl || !supabaseKey) {
   throw new Error("Missing Supabase environment variables");
 }
 
-export const supabase = useMockData
-  ? null
-  : createClient(
-      supabaseUrl || "https://placeholder.supabase.co",
-      supabaseAnonKey || "placeholder-key"
-    );
+export const supabase = createClient(supabaseUrl, supabaseKey);

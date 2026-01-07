@@ -56,7 +56,7 @@ export function Header() {
           </Button>
 
           {/* Admin Link (Temporary for MVP access) */}
-          <Link href="/admin/login" className="hidden md:block">
+          <Link href="/admin" className="hidden md:block">
             <Button variant="ghost" size="sm">
               Admin
             </Button>

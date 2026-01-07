@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 
 export default async function ProducersPage() {
   const producers = await api.producers.list();
-
+  console.log(producers);
   return (
     <div className="container mx-auto px-4 py-8 space-y-8">
       <div className="space-y-4 text-center max-w-2xl mx-auto">
